@@ -139,6 +139,23 @@ namespace Entidades
             return formato;
 
         }
+        /*
+        public static bool operator ==(Cliente cliente1, Cliente cliente2)
+        {
+            if (!(cliente1 is null) && !(cliente2 is null))
+            {
+                if (cliente1.dni == cliente2.dni)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
+
+        public static bool operator !=(Cliente cliente1, Cliente cliente2)
+        {
+            return (cliente1.dni != cliente2.dni);
+        }*/
     }
 }

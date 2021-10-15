@@ -12,7 +12,7 @@ namespace Entidades
         float sueldo;
         string user;
         string contraseña;
-    
+
         /// <summary>
         /// Constructor de la clase usuario que sea sus atributos nombre apellido dni sueldo usuario y contraseña
         /// </summary>
@@ -22,7 +22,7 @@ namespace Entidades
         /// <param name="sueldo"></param>
         /// <param name="usuario"></param>
         /// <param name="contraseña"></param>
-        public Usuario(string nombre, string apellido, double dni,float sueldo,string usuario, string contraseña)
+        public Usuario(string nombre, string apellido, double dni, float sueldo, string usuario, string contraseña)
         {
 
             User = usuario;
@@ -78,13 +78,21 @@ namespace Entidades
         /// </summary>
         public double DNI
         {
+
             set
             {
-                if (Local.ValidarDNI(value))
+                try
                 {
-                    this.dni = value;
+                    if (Local.ValidarDNI(value))
+                    {
+                        this.dni = value;
+                    }
+
                 }
-               
+                catch (Exception DniEx)
+                {
+                    throw new DniException("Error: Ingreso un DNI invalido");
+                }
             }
 
             get
@@ -101,7 +109,7 @@ namespace Entidades
         {
             set
             {
-                if(value >0)
+                if (value > 0)
                 {
                     this.sueldo = value;
                 }
@@ -124,9 +132,10 @@ namespace Entidades
                 if (Local.ValidarString(value))
                 {
                     this.user = value;
-                }else
+                }
+                else
                 {
-                    
+
                 }
             }
 
@@ -143,7 +152,7 @@ namespace Entidades
         {
             set
             {
-                if(Local.ValidarString(value))
+                if (Local.ValidarString(value))
                 {
                     this.contraseña = value;
                 }
@@ -164,11 +173,25 @@ namespace Entidades
         public string DatosLogin()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("{0}",this.Nombre);
-            return sb.ToString(); 
+            sb.AppendFormat("{0}", this.Nombre);
+            return sb.ToString();
 
         }
+
+
+        public static bool operator +(List<Usuario>lista, Usuario usuario)
+        {
+            if (lista != null && usuario != null)
+            {
+                lista.Add(usuario);
+
+                return true;
+            }
+
+            return false;
+        }
         
-      
     }
 }
+
+        

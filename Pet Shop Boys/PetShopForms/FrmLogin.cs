@@ -5,7 +5,7 @@ using Entidades;
 namespace PetShopForms
 {
     public partial class FrmLogin : Form
-    { 
+    {
         Usuario aux;
         public FrmLogin()
         {
@@ -39,40 +39,52 @@ namespace PetShopForms
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-
-            if (aux != null)
+            try
             {
-                if (typeof(Empleado) == aux.GetType())
+                aux = Local.LoguearUsuario(txtb_Usuario.Text, txtb_Contraseña.Text);
+
+                if (aux != null)
                 {
-                    FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal(aux);
-                    menuPrincipal.BackColor = Color.Salmon;
-                    this.Hide();
-                    menuPrincipal.ShowDialog();
-                }
-                else
-                {
-                    FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal(aux);
-                    this.Hide();
-                    menuPrincipal.ShowDialog();
+                    if (typeof(Empleado) == aux.GetType())
+                    {
+                        FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal(aux);
+                        menuPrincipal.BackColor = Color.Salmon;
+                        this.Hide();
+                        menuPrincipal.ShowDialog();
+                    }
+                    else
+                    {
+                        FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal(aux);
+                        this.Hide();
+                        menuPrincipal.ShowDialog();
+                    }
                 }
 
                 this.Show();
+
             }
-            else
+            catch (UsuarioInvalidoException UsuarioException)
             {
-                MessageBox.Show("Error, ingreso un usuario o contraseña incorrecto");
+                lblErrorUsuario.Text = UsuarioException.Message;
             }
+
         }
 
         private void btn_CompletarComoEmpleado_Click(object sender, EventArgs e)
         {
-            aux = Local.LoguearUsuario("Obiwan", "Kenobi");
+            try
+            {
+                aux = Local.LoguearUsuario("Obiwan", "Kenobi");
 
-            txtb_Usuario.Text = "Obiwan";
-            txtb_Contraseña.Text = "Kenobi";
+                txtb_Usuario.Text = "Obiwan";
+                txtb_Contraseña.Text = "Kenobi";
 
+            }
+            catch (UsuarioInvalidoException UsuarioException)
+            {
+                lblErrorUsuario.Text = UsuarioException.Message;
+            }
         }
-
         private void btn_CompletarComoAdmin_Click(object sender, EventArgs e)
         {
             aux = Local.LoguearUsuario("Sudo", "Suuu");

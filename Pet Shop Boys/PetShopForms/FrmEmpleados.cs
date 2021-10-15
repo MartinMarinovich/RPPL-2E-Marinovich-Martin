@@ -116,28 +116,34 @@ namespace PetShopForms
             abm.BackColor = Color.Salmon;
             if (abm.ShowDialog() == DialogResult.OK )
             {
+                Local.Nomina.Add(abm.Empleado);
                 lstb_Nomina.Items.Add(abm.Empleado.Datos());
             }
+            
         }
 
         private void btn_ModificarEmpleado_Click(object sender, System.EventArgs e)
         {
             int indice = 0;
+
             if (lstb_Nomina.SelectedItem != null)
             {
                 controlador = 2;
                 abm = new FrmABM(controlador);
                 abm.BackColor = Color.DarkSalmon;
+
                 if (abm.ShowDialog() == DialogResult.OK)
                 {
                     foreach (Usuario item in Local.Nomina)
                     {
-
                         if (item.Datos() == lstb_Nomina.SelectedItem.ToString())
                         {
+                            empleado = (Empleado) item;
                             indice = Local.Nomina.IndexOf(item);
                         }
                     }
+
+                    abm.Empleado.Id = empleado.Id;
                     Local.Nomina.RemoveAt(indice);
                     Local.Nomina.Insert(indice, abm.Empleado);
                 }        
@@ -149,7 +155,6 @@ namespace PetShopForms
                 lblErrores.Text = "Error al dar el alta del empleado";
             }
 
-        }
+        }    
     }
-
 }

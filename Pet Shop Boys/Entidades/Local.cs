@@ -9,7 +9,7 @@ namespace Entidades
         static List<Producto> Inventario;
         static Stack<Cliente> Clientes;
         static List<Usuario> Personal;
-        static List<Compra> ListaDeVentas;
+        static Queue<Compra> ListaDeVentas;
         static List<Administrador> ListaDeAdministradores;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Entidades
             Personal = new List<Usuario>();
             ListaDeAdministradores = new List<Administrador>();
             Inventario = new List<Producto>();
-            ListaDeVentas = new List<Compra>();
+            ListaDeVentas = new Queue<Compra>();
             Clientes = new Stack<Cliente>();
 
             HardcodearDatosInciales();
@@ -74,7 +74,7 @@ namespace Entidades
         /// <summary>
         /// Propiedad estatica de la Lista de Compras, valida que no sea null setea y devuelve el atributo
         /// </summary>
-        public static List<Compra> Ventas
+        public static Queue<Compra> Ventas
         {
             set
             {
@@ -228,13 +228,7 @@ namespace Entidades
 
         private static void HardcodearVentas()
         {
-                /*Producto
-                new Producto prod1(4008, 1000, 10, Eproducto.Vacuna, "Antirrabica"),
-                new Producto(2002, 65, 34, Eproducto.Golosina, "Dentasticks"),
-                new Producto(2003, 62, 34, Eproducto.Golosina, "Carne"),
-                new Producto(3008, 20, 15, Eproducto.Antiparasitario, "Generico")
-            */
-
+            
             List<Compra> ventasHardcode = new List<Compra> {
                 new Compra(new Cliente("Fabricio","Rodriguez",42333560),3000,Local.Stock.GetRange(0,4),new Envio(4000,Evehiculo.Miniflete,30)),
                 new Compra(new Cliente("Martin", "Martinez",40033560),600,Local.Stock.GetRange(0,2),new Envio(4000,Evehiculo.Miniflete,30)),
@@ -245,7 +239,7 @@ namespace Entidades
 
             foreach (Compra item in ventasHardcode)
             {
-                Ventas.Add(item);
+                Ventas.Enqueue(item);
             }
 
         }
@@ -277,18 +271,26 @@ namespace Entidades
         /// <returns></returns>
         public static Usuario LoguearUsuario(string usuario, string contraseña)
         {
+            Usuario auxUsuario = null;
+
             if (ValidarString(usuario) && ValidarString(contraseña))
             {
                 foreach (Usuario item in Local.Nomina)
                 {
                     if (item.Contraseña == contraseña && item.User == usuario)
                     {
-                        return item;
+                        auxUsuario = item;
+                        return auxUsuario;
                     }
 
                 }
+            }       
+            if (auxUsuario == null)
+            {
+                UsuarioInvalidoException usuarioException = new UsuarioInvalidoException();
+                throw usuarioException;
             }
-
+                
             return null;
         }
 
@@ -324,6 +326,59 @@ namespace Entidades
             return null;
         }
 
+
+
+        public static bool RealizarVenta(Cliente cliente, List<Producto> productos)
+        {
+                  
+            foreach (Producto item in Local.Stock)
+            {
+                cliente.Dinero = cliente.Dinero - item.Precio;
+            }
+
+            if (cliente.Dinero >0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static List<Producto> ArmarCarrito(int cant, List<Producto> listaDeProductos, string producto)
+        {
+            int stockProducto = 0;
+            int indice = 0;
+            Producto auxProducto = null;
+            if (cant > 0)
+            {
+                for (int i = 0; i < cant; i++)
+                {
+                    foreach (Producto item in Local.Stock)
+                    {
+                        if (item.DatosProducto() == producto)
+                        {
+                            indice = Local.Stock.IndexOf(item);
+                            stockProducto = item.Stock;
+                            stockProducto = stockProducto - cant;
+
+                            if (stockProducto >= 0)
+                            {
+                                auxProducto = item;
+                                listaDeProductos.Add(item);
+                             
+                            }
+                        }
+
+                    }
+
+                }
+                auxProducto.Stock = stockProducto;
+                Local.Stock.RemoveAt(indice);
+                Local.Stock.Insert(indice, auxProducto);
+
+            }
+            return listaDeProductos;
+        }
 
     }
 }

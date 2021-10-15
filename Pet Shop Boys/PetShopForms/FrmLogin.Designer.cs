@@ -41,6 +41,7 @@ namespace PetShopForms
             this.lstView_Nomina = new System.Windows.Forms.ListView();
             this.btn_CompletarComoEmpleado = new System.Windows.Forms.Button();
             this.btn_CompletarComoAdmin = new System.Windows.Forms.Button();
+            this.lblErrorUsuario = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -138,12 +139,22 @@ namespace PetShopForms
             this.btn_CompletarComoAdmin.UseVisualStyleBackColor = true;
             this.btn_CompletarComoAdmin.Click += new System.EventHandler(this.btn_CompletarComoAdmin_Click);
             // 
+            // lblErrorUsuario
+            // 
+            this.lblErrorUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblErrorUsuario.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorUsuario.Location = new System.Drawing.Point(13, 437);
+            this.lblErrorUsuario.Name = "lblErrorUsuario";
+            this.lblErrorUsuario.Size = new System.Drawing.Size(249, 60);
+            this.lblErrorUsuario.TabIndex = 15;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1034, 497);
+            this.Controls.Add(this.lblErrorUsuario);
             this.Controls.Add(this.btn_CompletarComoAdmin);
             this.Controls.Add(this.btn_CompletarComoEmpleado);
             this.Controls.Add(this.lstView_Nomina);
@@ -179,6 +190,7 @@ namespace PetShopForms
         private System.Windows.Forms.ListView lstView_Nomina;
         private System.Windows.Forms.Button btn_CompletarComoEmpleado;
         private System.Windows.Forms.Button btn_CompletarComoAdmin;
+        private System.Windows.Forms.Label lblErrorUsuario;
     }
 }
 

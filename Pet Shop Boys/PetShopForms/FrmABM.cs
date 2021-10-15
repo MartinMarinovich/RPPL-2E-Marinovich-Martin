@@ -49,7 +49,7 @@ namespace PetShopForms
                 MessageBox.Show("Error, debe completar los campos para cargar un empleado");
             }
         }
-
+        
         private void FrmABM_Load(object sender, EventArgs e)
         {
           
