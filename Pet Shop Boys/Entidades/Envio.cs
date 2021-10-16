@@ -67,5 +67,12 @@ namespace Entidades
                 return this.recorrido;
             }
         }
+
+        public static explicit operator string(Envio envio)
+        {
+            string formato = string.Empty;
+            formato = string.Format("Transporte: {0,-12}", envio.vehiculo);
+            return formato;
+        }
     }
 }

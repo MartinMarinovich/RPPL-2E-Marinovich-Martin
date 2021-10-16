@@ -16,7 +16,7 @@ namespace PetShopForms
         Cliente cliente = null;
         Compra compra = null;
         Envio envio = null;
-
+        Producto auxProducto;
         int auxCant = 0;
         List<Producto> listaAux = new List<Producto>();
 
@@ -93,11 +93,11 @@ namespace PetShopForms
                 {
                     try
                     {
-                        listaAux = Local.ArmarCarrito(auxCant, listaAux, lstb_Productos.SelectedItem.ToString());
-                        
-                        if (listaAux != null)
+                        auxProducto = Local.AgregarProducto(auxCant, lstb_Productos.SelectedItem.ToString());                  
+                       
+                        if (auxProducto != null)
                         {
-                          
+                            listaAux.Add(auxProducto);
                             envio = Local.AsignarEnvio(cliente, listaAux);
                         }
                     }
@@ -128,13 +128,15 @@ namespace PetShopForms
         {
             pedidoTerminado = true;
             btn_IniciarPedido.Enabled = true;
+            btn_FinalizarVenta.Enabled = false;
             try
             {
                 if (envio != null)
                 {
+
                     foreach (Producto item in listaAux)
                     {
-                        auxMonto = item.Precio * auxCant;
+                        auxMonto =+ item.Precio * item.Stock;
                     }
 
                     Local.DescontarDinero(cliente, auxMonto, envio.Precio);
@@ -205,24 +207,6 @@ namespace PetShopForms
                 }
             }
         }
-
-        private void FrmVentas_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-        }
-
-        private void LimpiarCampos()
-        {
-            txtb_Apellido.Text = string.Empty;
-            txtb_Dni.Text = string.Empty;
-            txtb_Nombre.Text = string.Empty;
-            txt_CantidadDeProducto.Text = string.Empty;
-
-        }
-
         private void btn_IniciarPedido_Click(object sender, EventArgs e)
         {
             if (pedidoTerminado == false)
@@ -266,6 +250,24 @@ namespace PetShopForms
             }
         }
 
+        private void FrmVentas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtb_Apellido.Text = string.Empty;
+            txtb_Dni.Text = string.Empty;
+            txtb_Nombre.Text = string.Empty;
+            txt_CantidadDeProducto.Text = string.Empty;
+
+        }
+
+        
         private void btn_HistorialDeVentas_Click(object sender, EventArgs e)
         {
             FrmHistorialVentas formventas = new FrmHistorialVentas();

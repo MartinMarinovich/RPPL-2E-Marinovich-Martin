@@ -116,7 +116,7 @@ namespace PetShopForms
             abm.BackColor = Color.Salmon;
             if (abm.ShowDialog() == DialogResult.OK )
             {
-                Local.Nomina.Add(abm.Empleado);
+                Local.Nomina = Local.Nomina + abm.Empleado;
                 lstb_Nomina.Items.Add(abm.Empleado.Datos());
             }
             

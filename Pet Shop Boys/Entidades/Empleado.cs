@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 
 namespace Entidades
 {
@@ -81,6 +82,17 @@ namespace Entidades
             }
             return false;
 
+        }
+
+        public static List<Usuario> operator +(List<Usuario> Lista, Empleado empleado)
+        {
+            if (Lista != null && empleado != null)
+            {
+                Lista.Add(empleado);
+                return Lista;
+            }
+
+            return null;
         }
     }
 }

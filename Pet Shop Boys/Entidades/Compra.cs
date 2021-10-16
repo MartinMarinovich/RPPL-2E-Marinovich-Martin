@@ -10,7 +10,7 @@ namespace Entidades
         Cliente comprador;
         float monto;
         List<Producto> listaDeProductos;
-
+        Envio envio;
         /// <summary>
         /// Constructor de la clase compra, se compone de un objeto ciente, float monto de dinero de la compra y lista de objetos tipo producto
         /// </summary>
@@ -24,6 +24,7 @@ namespace Entidades
             Comprador = comprador;
             Monto = monto;
             Carrito = listaDeProductos;
+            EnvioCompra = envio;
         }
 
         /// <summary>
@@ -107,6 +108,23 @@ namespace Entidades
             }
         }
 
+        public Envio EnvioCompra
+        {
+            set
+            {
+                if (value != null)
+                {
+                    this.envio = value;
+                }
+            }
+
+            get
+            {
+                return this.envio;
+            }
+        }
+
+
         /// <summary>
         /// Metodo protegido de la clase compra que retorna los datos que conforman a la compra
         /// </summary>
@@ -115,7 +133,7 @@ namespace Entidades
         {
             
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("{0,-12} {1,8} {2,12}\n", this.Codigo.ToString(),this.Monto.ToString(),this.Comprador.DatosCliente());
+            sb.AppendFormat("{0,-12} {1,8} {2,12}\n", this.Codigo.ToString(),this.Monto.ToString(),this.Comprador.DatosCliente(),(string)this.envio);
            
             return sb.ToString();
 

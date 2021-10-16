@@ -178,18 +178,7 @@ namespace Entidades
 
         }
 
-
-        public static bool operator +(List<Usuario>lista, Usuario usuario)
-        {
-            if (lista != null && usuario != null)
-            {
-                lista.Add(usuario);
-
-                return true;
-            }
-
-            return false;
-        }
+        
         
     }
 }

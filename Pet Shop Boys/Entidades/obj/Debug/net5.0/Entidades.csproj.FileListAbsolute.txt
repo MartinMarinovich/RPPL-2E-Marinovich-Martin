@@ -73,6 +73,7 @@ C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entid
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\bin\Debug\net5.0\Entidades.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\bin\Debug\net5.0\ref\Entidades.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\bin\Debug\net5.0\Entidades.pdb
+C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfoInputs.cache
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfo.cs
@@ -80,4 +81,3 @@ C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entid
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\ref\Entidades.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.pdb
-C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache

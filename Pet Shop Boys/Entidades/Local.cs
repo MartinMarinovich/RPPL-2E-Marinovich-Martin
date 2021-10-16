@@ -299,16 +299,21 @@ namespace Entidades
             Evehiculo auxVehiculo;
             int cantProductos = 0;
             float montoDelEnvio = 0;
-            cantProductos = listaDeProductos.Count;
+            cantProductos = 0;
             auxVehiculo = Evehiculo.Motocicleta;
+
+            foreach (Producto item in listaDeProductos)
+            {
+                cantProductos = cantProductos + item.Stock;
+            }
 
             if (cantProductos < 4)
             {
-                montoDelEnvio = 75 * cliente.Distancia;
+                montoDelEnvio = 35 * cliente.Distancia;
             }
             else
             {
-                montoDelEnvio = 100 * cliente.Distancia;
+                montoDelEnvio = 80 * cliente.Distancia;
                 auxVehiculo = Evehiculo.Miniflete;
             }
 
@@ -366,8 +371,9 @@ namespace Entidades
         }
 
 
-        public static List<Producto> ArmarCarrito(int cant, List<Producto> listaDeProductos, string producto)
+        public static Producto AgregarProducto(int cant, string producto)
         {
+            Producto auxProducto = null;
             int stockProducto = 0;
             int indice = 0;
             bool descontarSotck = false;
@@ -389,8 +395,9 @@ namespace Entidades
 
                             if (descontarSotck)
                             {
-                                listaDeProductos.Add(item);
-                                return listaDeProductos;
+                                auxProducto = item;
+                                auxProducto.Stock = cant;
+                                return auxProducto;
                             }
 
                         }

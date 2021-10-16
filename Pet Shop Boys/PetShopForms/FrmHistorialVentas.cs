@@ -21,7 +21,7 @@ namespace PetShopForms
         {
             foreach (Compra item in Local.Ventas)
             {
-                
+                lstb_HistorialVentas.Items.Add((string)item.EnvioCompra);
                lstb_HistorialVentas.Items.Add(item.Datos());
                 lstb_HistorialVentas.Items.Add(item.MostrarCarrito());
             }
