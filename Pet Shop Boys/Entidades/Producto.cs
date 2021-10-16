@@ -96,6 +96,9 @@ namespace Entidades
                 if(value>=0)
                 {
                     this.cantidad = value;
+                }else
+                {
+                    throw new ProductoStockException();
                 }
 
             }
@@ -144,6 +147,24 @@ namespace Entidades
             sb.AppendJoin("                 ", Codigo, Tipo, Descripcion, Precio);
 
             return sb.ToString();
+        }
+
+
+        public Producto BuscarProducto(string descripcion)
+        {
+            Producto auxProducto = null;
+
+            foreach (Producto item in Local.Stock)
+            {
+                if (auxProducto.DatosProducto() == descripcion)
+                {
+                    auxProducto = item;
+
+                    return auxProducto;
+                }
+            }
+
+            return null;
         }
     }
 }

@@ -85,6 +85,9 @@ namespace Entidades
                 if (value > 0)
                 {
                     this.saldo = value;
+                }else
+                {
+                    throw new ClienteSinDineroException();
                 }
             }
 
