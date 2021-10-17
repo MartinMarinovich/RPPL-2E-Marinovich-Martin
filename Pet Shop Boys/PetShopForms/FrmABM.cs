@@ -32,27 +32,40 @@ namespace PetShopForms
 
         public void btn_AltaEmpleado_Click(object sender, EventArgs e)
         {
-            
-            if (Local.ValidarString(txtb_NombreAlta.Text) && Local.ValidarString(txtb_ApellidoALta.Text)
-            && Local.ValidarString(txb_Usuario.Text) && Local.ValidarString(txtb_Contraseña.Text)
-            && Local.ValidarDNI(double.Parse(txtb_DniAlta.Text)) && Local.ValidarStringNumerico(txtb_SueldoAlta.Text))
+            double auxDni;
+            lblErroresAbm.Visible = false;
+            try
             {
-                empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
-                    , txb_Usuario.Text, txtb_Contraseña.Text);
+                if (Local.ValidarString(txtb_NombreAlta.Text) && Local.ValidarString(txtb_ApellidoALta.Text)
+                 && Local.ValidarString(txb_Usuario.Text) && Local.ValidarString(txtb_Contraseña.Text)
+                 && double.TryParse(txtb_DniAlta.Text, out auxDni)
+                 && Local.ValidarStringNumerico(txtb_SueldoAlta.Text))
+                {
+                    Local.ValidarDNI(auxDni);
+ 
+                     empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
+                        , txb_Usuario.Text, txtb_Contraseña.Text);
 
-                this.DialogResult = DialogResult.OK;        
-                this.Close();
-
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }else
+                {
+                    lblErroresAbm.Visible = true;
+                    lblErroresAbm.Text = "Error, complete los campos con valores validos";
+                    this.Limpiar();
+                }
             }
-            else
+            catch (DniException DniInvalido)
             {
-                MessageBox.Show("Error, debe completar los campos para cargar un empleado");
+                lblErroresAbm.Visible = true;
+                this.Limpiar();
+                lblErroresAbm.Text = DniInvalido.Message;
             }
         }
-        
+
         private void FrmABM_Load(object sender, EventArgs e)
         {
-          
+            lblErroresAbm.Visible = false;
             if (controlador == 2)
             {
                 LblUsuario.Visible = false;
@@ -60,7 +73,8 @@ namespace PetShopForms
                 btn_AltaEmpleado.Visible = false;
                 txtb_Contraseña.Visible = false;
                 txb_Usuario.Visible = false;
-            }else
+            }
+            else
             {
                 btn_ModificarEmpleado.Visible = false;
             }
@@ -68,6 +82,7 @@ namespace PetShopForms
 
         private void btn_ModificarEmpleado_Click(object sender, EventArgs e)
         {
+
             if (Local.ValidarString(txtb_NombreAlta.Text) && Local.ValidarString(txtb_ApellidoALta.Text)
                 && Local.ValidarStringNumerico(txtb_SueldoAlta.Text))
             {
@@ -79,9 +94,21 @@ namespace PetShopForms
             else
             {
 
-                MessageBox.Show("Error, debe completar los campos para modificar un empleado");
+                lblErroresAbm.Text = "Error, complete los campos con valores validos";
+                this.Limpiar();
             }
-            
+
+        }
+
+
+        protected void Limpiar()
+        {
+            txtb_NombreAlta.Text = string.Empty;
+            txtb_ApellidoALta.Text = string.Empty;
+            txb_Usuario.Text = string.Empty;
+            txtb_SueldoAlta.Text = string.Empty;
+            txtb_DniAlta.Text = string.Empty;
+            txtb_Contraseña.Text = string.Empty;
         }
     }
 

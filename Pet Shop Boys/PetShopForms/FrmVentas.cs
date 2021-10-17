@@ -74,10 +74,6 @@ namespace PetShopForms
         private void btn_RealizarVenta_Click(object sender, EventArgs e)
         {
             
-            int indice = 0;
-            int stockproducto = 0;
-            double dineroCliente = 0;
-
             if (pedidoTerminado == true)
             {
                 listaAux = new List<Producto>();
@@ -122,7 +118,7 @@ namespace PetShopForms
                 lbl_Errores.Text = "Debe seleccionar un producto, la cantidad del mismo y un cliente para realizar la venta";
             }
 
-            // LimpiarCampos();
+           LimpiarCampos();
         }
         private void btn_FinalizarVenta_Click(object sender, EventArgs e)
         {
@@ -136,7 +132,7 @@ namespace PetShopForms
 
                     foreach (Producto item in listaAux)
                     {
-                        auxMonto =+ item.Precio * item.Stock;
+                        auxMonto = auxMonto + item.Precio * item.Stock;
                     }
 
                     Local.DescontarDinero(cliente, auxMonto, envio.Precio);
@@ -158,6 +154,8 @@ namespace PetShopForms
             {
                 lbl_Errores.Visible = true;
                 lbl_Errores.Text = sinDineroEx.Message;
+                pedidoTerminado = true;
+                
             }
             
             LimpiarCampos();
@@ -203,7 +201,7 @@ namespace PetShopForms
                 foreach (Producto item in listaAux)
                 {
 
-                    lstb_HistorialVentas.Items.Add(item.DatosParaVenta() + "   CANTIDAD : " + auxCant);
+                    lstb_HistorialVentas.Items.Add(item.DatosParaVenta() + "   CANTIDAD : " + item.Stock.ToString());
                 }
             }
         }

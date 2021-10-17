@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CsvHelper;
 using Entidades;
 using static Entidades.Enumerados;
 
@@ -15,7 +18,7 @@ namespace PetShopForms
     public partial class FrmStock : Form
     {
         Producto producto;
-
+        bool csvExportado = false;
         public FrmStock()
         {
             InitializeComponent();
@@ -118,36 +121,33 @@ namespace PetShopForms
         {
             int indice = 0;
             int auxiiar = 0;
-
+            string producto = string.Empty;
+            lbl_ErrorAlta.Visible = false;
 
             if (lstb_Productos.SelectedItem != null && int.Parse(txtb_CantidadReducir.Text) > 0)
             {
 
-                foreach (Producto item in Local.Stock)
-                {
+                producto = lstb_Productos.SelectedItem.ToString();
 
-                    if (lstb_Productos.SelectedItem.ToString() == item.DatosProducto())
+                try
+                {
+                    foreach (Producto item in Local.Stock)
                     {
-                        indice = Local.Stock.IndexOf(item);
-                        auxiiar = int.Parse(txtb_CantidadReducir.Text);
-                        auxiiar = item.Stock - auxiiar;
-                        item.Stock = auxiiar;
-                        producto = item;
+                        if (producto == item.DatosProducto())
+                        {
+                            indice = Local.Stock.IndexOf(item);
+                            auxiiar = int.Parse(txtb_CantidadReducir.Text);
+                            Local.DescontarStock(indice, auxiiar);
+                            ActualizarProductos();
+                        }
                     }
                 }
-
-                if (auxiiar < 0)
+                catch (ProductoStockException ProductoException)
                 {
-                    lbl_ErrorAlta.Text = "Error, el producto no puede tener una cantidad menor a 0";
                     lbl_ErrorAlta.Visible = true;
+                    lbl_ErrorAlta.Text = ProductoException.Message;
                     LimpiarCampos();
-                }
-                else
-                {
-                    Local.Stock.RemoveAt(indice);
-                    Local.Stock.Insert(indice, producto);
-                    LimpiarCampos();
-                    ActualizarProductos();
+
                 }
             }
             else
@@ -176,6 +176,19 @@ namespace PetShopForms
             txtb_Descripcion.Text = string.Empty;
             txtb_Precio.Text = string.Empty;
             txtb_Cantidad.Text = string.Empty;
+
+        }
+
+        private void btn_ExportarCsv_Click(object sender, EventArgs e)
+        {
+            string path = Path.Combine(Environment.CurrentDirectory,"Productos.csv");
+            using (StreamWriter escritor = new StreamWriter(path))
+            {
+                using (CsvWriter csvWriter = new CsvWriter(escritor, CultureInfo.InvariantCulture))
+                {
+                    csvWriter.WriteRecords(Local.Stock);
+                }
+            }
 
         }
     }

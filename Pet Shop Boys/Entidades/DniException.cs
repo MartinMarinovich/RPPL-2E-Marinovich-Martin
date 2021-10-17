@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class DniException : Exception
     {
-        public DniException(string mensaje) : base(mensaje)
+        public DniException()
         {
 
         }

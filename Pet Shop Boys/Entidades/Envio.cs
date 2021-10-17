@@ -71,7 +71,7 @@ namespace Entidades
         public static explicit operator string(Envio envio)
         {
             string formato = string.Empty;
-            formato = string.Format("Transporte: {0,-12}", envio.vehiculo);
+            formato = string.Format("Transporte: {0,-12}Precio:{1,6}", envio.vehiculo,envio.precio);
             return formato;
         }
     }

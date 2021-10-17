@@ -131,4 +131,4 @@ C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetSh
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\ref\PetShopForms.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.pdb
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.genruntimeconfig.cache
-C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CopyComplete
+C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\bin\Debug\net5.0-windows\CsvHelper.dll

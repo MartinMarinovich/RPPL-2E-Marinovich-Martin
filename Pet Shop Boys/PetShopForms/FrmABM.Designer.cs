@@ -45,6 +45,7 @@ namespace PetShopForms
             this.lblSueldo = new System.Windows.Forms.Label();
             this.btn_AltaEmpleado = new System.Windows.Forms.Button();
             this.btn_ModificarEmpleado = new System.Windows.Forms.Button();
+            this.lblErroresAbm = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,12 +187,22 @@ namespace PetShopForms
             this.btn_ModificarEmpleado.UseVisualStyleBackColor = true;
             this.btn_ModificarEmpleado.Click += new System.EventHandler(this.btn_ModificarEmpleado_Click);
             // 
+            // lblErroresAbm
+            // 
+            this.lblErroresAbm.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblErroresAbm.ForeColor = System.Drawing.Color.Red;
+            this.lblErroresAbm.Location = new System.Drawing.Point(8, 468);
+            this.lblErroresAbm.Name = "lblErroresAbm";
+            this.lblErroresAbm.Size = new System.Drawing.Size(254, 41);
+            this.lblErroresAbm.TabIndex = 54;
+            // 
             // FrmABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(274, 475);
+            this.ClientSize = new System.Drawing.Size(274, 518);
+            this.Controls.Add(this.lblErroresAbm);
             this.Controls.Add(this.btn_ModificarEmpleado);
             this.Controls.Add(this.btn_AltaEmpleado);
             this.Controls.Add(this.groupBox2);
@@ -225,5 +236,6 @@ namespace PetShopForms
         private System.Windows.Forms.Label lblSueldo;
         private System.Windows.Forms.Button btn_AltaEmpleado;
         private System.Windows.Forms.Button btn_ModificarEmpleado;
+        private System.Windows.Forms.Label lblErroresAbm;
     }
 }

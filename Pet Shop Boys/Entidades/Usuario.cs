@@ -81,17 +81,12 @@ namespace Entidades
 
             set
             {
-                try
+                if (Local.ValidarDNI(value))
                 {
-                    if (Local.ValidarDNI(value))
-                    {
-                        this.dni = value;
-                    }
-
-                }
-                catch (Exception DniEx)
+                    this.dni = value;
+                }else
                 {
-                    throw new DniException("Error: Ingreso un DNI invalido");
+                    throw new DniException();
                 }
             }
 
@@ -178,9 +173,8 @@ namespace Entidades
 
         }
 
-        
-        
+
+
     }
 }
 
-        

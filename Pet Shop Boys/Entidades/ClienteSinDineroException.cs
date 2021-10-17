@@ -14,7 +14,7 @@ namespace Entidades
         {
             get
             {
-                return "El cliente no posee dinero para esta compra";
+                return "La compra ha sido cancelada debido a que el cliente no posee tanto dinero, realicela nuevamente";
             }
         }
 

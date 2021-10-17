@@ -58,8 +58,11 @@ namespace PetShopForms
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_ExportarCsv = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstb_Productos
@@ -223,7 +226,7 @@ namespace PetShopForms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 23);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Codigo del Producto";
+            this.label1.Text = "Cantidad a Restar";
             // 
             // label3
             // 
@@ -231,7 +234,7 @@ namespace PetShopForms
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 15);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Cantidad a Modificar";
+            this.label3.Text = "Cantidad  a Aumentar";
             // 
             // lbl_ErrorAlta
             // 
@@ -321,12 +324,34 @@ namespace PetShopForms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ALTA PRODUCTO";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btn_ExportarCsv);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.Location = new System.Drawing.Point(279, 22);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(233, 191);
+            this.groupBox3.TabIndex = 32;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "DATOS EN CSV";
+            // 
+            // btn_ExportarCsv
+            // 
+            this.btn_ExportarCsv.Location = new System.Drawing.Point(20, 75);
+            this.btn_ExportarCsv.Name = "btn_ExportarCsv";
+            this.btn_ExportarCsv.Size = new System.Drawing.Size(151, 39);
+            this.btn_ExportarCsv.TabIndex = 3;
+            this.btn_ExportarCsv.Text = "Exportar CSV Productos";
+            this.btn_ExportarCsv.UseVisualStyleBackColor = true;
+            this.btn_ExportarCsv.Click += new System.EventHandler(this.btn_ExportarCsv_Click);
+            // 
             // FrmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(985, 580);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
@@ -349,6 +374,7 @@ namespace PetShopForms
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,5 +410,7 @@ namespace PetShopForms
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btn_ExportarCsv;
     }
 }
