@@ -26,9 +26,11 @@ namespace PetShopForms
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            
-             if (typeof(Empleado) == usuarioLogueado.GetType())
+
+            if (typeof(Empleado) == usuarioLogueado.GetType())
             {
+                this.BackColor = Color.DarkViolet;
+                lblEmpleados.Visible = false;
                 btn_Empleados.Visible = false;
             }
         }
@@ -53,18 +55,15 @@ namespace PetShopForms
             formVentas = new FrmVentas(usuarioLogueado);
             formVentas.BackColor = Color.PowderBlue;
             formVentas.Show();
-            
+
         }
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-               // Application.Exit();
-       
-            }else
+            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
+
             }
         }
     }

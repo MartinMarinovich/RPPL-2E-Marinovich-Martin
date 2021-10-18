@@ -100,12 +100,9 @@ namespace PetShopForms
 
         private void FrmEmpleados_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show($"Desea del panel de empleados?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
-            }else
-            {
-                
             }
         }
 

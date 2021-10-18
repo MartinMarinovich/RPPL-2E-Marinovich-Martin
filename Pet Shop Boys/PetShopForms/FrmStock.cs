@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,6 +71,7 @@ namespace PetShopForms
                 aux = (Eproducto)cmb_Tipos.SelectedItem;
                 producto = new Producto(double.Parse(txtb_Codigo.Text), float.Parse(txtb_Precio.Text), int.Parse(txtb_Cantidad.Text), aux, txtb_Descripcion.Text);
                 Local.Stock.Add(producto);
+                SystemSounds.Asterisk.Play();
                 ActualizarProductos();
                 LimpiarCampos();
             }
@@ -182,6 +184,7 @@ namespace PetShopForms
         private void btn_ExportarCsv_Click(object sender, EventArgs e)
         {
             string path = Path.Combine(Environment.CurrentDirectory,"Productos.csv");
+         
             using (StreamWriter escritor = new StreamWriter(path))
             {
                 using (CsvWriter csvWriter = new CsvWriter(escritor, CultureInfo.InvariantCulture))
@@ -189,7 +192,6 @@ namespace PetShopForms
                     csvWriter.WriteRecords(Local.Stock);
                 }
             }
-
         }
     }
 }

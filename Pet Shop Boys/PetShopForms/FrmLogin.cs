@@ -15,7 +15,7 @@ namespace PetShopForms
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            lblErrorUsuario.Visible = false;
             ListViewGroup Admins = new ListViewGroup("Administradores", HorizontalAlignment.Left);
             ListViewGroup Emps = new ListViewGroup("Empleados", HorizontalAlignment.Left);
 
@@ -65,6 +65,7 @@ namespace PetShopForms
             }
             catch (UsuarioInvalidoException UsuarioException)
             {
+                lblErrorUsuario.Visible = true;
                 lblErrorUsuario.Text = UsuarioException.Message;
             }
 
@@ -72,18 +73,10 @@ namespace PetShopForms
 
         private void btn_CompletarComoEmpleado_Click(object sender, EventArgs e)
         {
-            try
-            {
-                aux = Local.LoguearUsuario("Obiwan", "Kenobi");
+            aux = Local.LoguearUsuario("Obiwan", "Kenobi");
 
-                txtb_Usuario.Text = "Obiwan";
-                txtb_Contraseña.Text = "Kenobi";
-
-            }
-            catch (UsuarioInvalidoException UsuarioException)
-            {
-                lblErrorUsuario.Text = UsuarioException.Message;
-            }
+            txtb_Usuario.Text = "Obiwan";
+            txtb_Contraseña.Text = "Kenobi";
         }
         private void btn_CompletarComoAdmin_Click(object sender, EventArgs e)
         {

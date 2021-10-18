@@ -53,7 +53,7 @@ namespace PetShopForms
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.grpbAltas = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtb_Distancia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_HistorialDeVentas = new System.Windows.Forms.Button();
@@ -67,11 +67,15 @@ namespace PetShopForms
             this.grpbClientes = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btn_ExportarTxtCompra = new System.Windows.Forms.Button();
             this.grpbAltas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpbPanelPedido.SuspendLayout();
             this.grpbClientes.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstb_HistorialVentas
@@ -158,11 +162,11 @@ namespace PetShopForms
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(237, 19);
+            this.label4.Location = new System.Drawing.Point(297, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(221, 23);
+            this.label4.Size = new System.Drawing.Size(228, 23);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Seleccione el producto de la venta";
+            this.label4.Text = "Seleccione el producto para agregar";
             // 
             // lstb_Productos
             // 
@@ -271,7 +275,7 @@ namespace PetShopForms
             // 
             // grpbAltas
             // 
-            this.grpbAltas.Controls.Add(this.textBox1);
+            this.grpbAltas.Controls.Add(this.txtb_Distancia);
             this.grpbAltas.Controls.Add(this.label7);
             this.grpbAltas.Controls.Add(this.txtb_Nombre);
             this.grpbAltas.Controls.Add(this.label2);
@@ -283,27 +287,27 @@ namespace PetShopForms
             this.grpbAltas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.grpbAltas.Location = new System.Drawing.Point(286, 29);
             this.grpbAltas.Name = "grpbAltas";
-            this.grpbAltas.Size = new System.Drawing.Size(200, 353);
+            this.grpbAltas.Size = new System.Drawing.Size(204, 353);
             this.grpbAltas.TabIndex = 27;
             this.grpbAltas.TabStop = false;
             this.grpbAltas.Text = "ALTAS";
             // 
-            // textBox1
+            // txtb_Distancia
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 256);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Ingrese cantidad de producto";
-            this.textBox1.Size = new System.Drawing.Size(181, 23);
-            this.textBox1.TabIndex = 19;
+            this.txtb_Distancia.Location = new System.Drawing.Point(6, 258);
+            this.txtb_Distancia.Name = "txtb_Distancia";
+            this.txtb_Distancia.PlaceholderText = "Ingrese la distancia del domicilio";
+            this.txtb_Distancia.Size = new System.Drawing.Size(188, 23);
+            this.txtb_Distancia.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(6, 225);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(181, 23);
+            this.label7.Size = new System.Drawing.Size(194, 23);
             this.label7.TabIndex = 20;
-            this.label7.Text = "Distancia del Domicilio";
+            this.label7.Text = "Distancia del Domicilio (KM)";
             // 
             // groupBox1
             // 
@@ -391,7 +395,7 @@ namespace PetShopForms
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(158, 45);
+            this.label15.Location = new System.Drawing.Point(6, 47);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(151, 40);
             this.label15.TabIndex = 33;
@@ -439,12 +443,47 @@ namespace PetShopForms
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "STOCK DE PRODUCTOS";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.btn_ExportarTxtCompra);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(958, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(182, 156);
+            this.groupBox2.TabIndex = 45;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "TICKETS";
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.DarkRed;
+            this.label18.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(22, 38);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(145, 30);
+            this.label18.TabIndex = 34;
+            this.label18.Text = "Exportara un txt de la compra realizada";
+            // 
+            // btn_ExportarTxtCompra
+            // 
+            this.btn_ExportarTxtCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarTxtCompra.Location = new System.Drawing.Point(22, 92);
+            this.btn_ExportarTxtCompra.Name = "btn_ExportarTxtCompra";
+            this.btn_ExportarTxtCompra.Size = new System.Drawing.Size(129, 38);
+            this.btn_ExportarTxtCompra.TabIndex = 19;
+            this.btn_ExportarTxtCompra.Text = "Exportar Ticket";
+            this.btn_ExportarTxtCompra.UseVisualStyleBackColor = true;
+            this.btn_ExportarTxtCompra.Click += new System.EventHandler(this.btn_ExportarTxtCompra_Click);
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1152, 737);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.grpbClientes);
             this.Controls.Add(this.grpbPanelPedido);
@@ -469,6 +508,7 @@ namespace PetShopForms
             this.grpbPanelPedido.ResumeLayout(false);
             this.grpbClientes.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -508,8 +548,11 @@ namespace PetShopForms
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_IniciarPedido;
         private System.Windows.Forms.Button btn_HistorialDeVentas;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtb_Distancia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_ExportarTxtCompra;
+        private System.Windows.Forms.Label label18;
     }
 }

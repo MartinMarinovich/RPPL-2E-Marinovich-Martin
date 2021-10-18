@@ -201,7 +201,7 @@ namespace PetShopForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(274, 518);
+            this.ClientSize = new System.Drawing.Size(274, 505);
             this.Controls.Add(this.lblErroresAbm);
             this.Controls.Add(this.btn_ModificarEmpleado);
             this.Controls.Add(this.btn_AltaEmpleado);

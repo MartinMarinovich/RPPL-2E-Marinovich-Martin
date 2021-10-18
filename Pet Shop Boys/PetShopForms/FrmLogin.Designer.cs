@@ -141,11 +141,12 @@ namespace PetShopForms
             // 
             // lblErrorUsuario
             // 
-            this.lblErrorUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblErrorUsuario.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorUsuario.Location = new System.Drawing.Point(13, 437);
+            this.lblErrorUsuario.BackColor = System.Drawing.Color.Red;
+            this.lblErrorUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblErrorUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lblErrorUsuario.Location = new System.Drawing.Point(12, 441);
             this.lblErrorUsuario.Name = "lblErrorUsuario";
-            this.lblErrorUsuario.Size = new System.Drawing.Size(249, 60);
+            this.lblErrorUsuario.Size = new System.Drawing.Size(193, 39);
             this.lblErrorUsuario.TabIndex = 15;
             // 
             // FrmLogin

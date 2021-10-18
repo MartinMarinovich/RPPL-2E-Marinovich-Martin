@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,6 +48,7 @@ namespace PetShopForms
                         , txb_Usuario.Text, txtb_Contraseña.Text);
 
                     this.DialogResult = DialogResult.OK;
+                    SystemSounds.Hand.Play();
                     this.Close();
                 }else
                 {
@@ -89,6 +91,7 @@ namespace PetShopForms
                 empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
                      , txb_Usuario.Text, txtb_Contraseña.Text);
                 this.DialogResult = DialogResult.OK;
+                SystemSounds.Hand.Play();
                 this.Close();
             }
             else

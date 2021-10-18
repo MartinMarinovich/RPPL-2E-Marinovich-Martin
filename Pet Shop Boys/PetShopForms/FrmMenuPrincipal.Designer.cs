@@ -42,7 +42,7 @@ namespace PetShopForms
             // lblMenuPrincipal
             // 
             this.lblMenuPrincipal.AutoSize = true;
-            this.lblMenuPrincipal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblMenuPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.lblMenuPrincipal.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMenuPrincipal.ForeColor = System.Drawing.Color.Coral;
             this.lblMenuPrincipal.Location = new System.Drawing.Point(164, 9);
@@ -87,7 +87,7 @@ namespace PetShopForms
             // 
             // lblEmpleados
             // 
-            this.lblEmpleados.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblEmpleados.BackColor = System.Drawing.Color.Transparent;
             this.lblEmpleados.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmpleados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblEmpleados.Location = new System.Drawing.Point(3, 404);
@@ -98,7 +98,7 @@ namespace PetShopForms
             // 
             // lblStock
             // 
-            this.lblStock.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblStock.BackColor = System.Drawing.Color.Transparent;
             this.lblStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblStock.Location = new System.Drawing.Point(287, 404);
@@ -109,7 +109,7 @@ namespace PetShopForms
             // 
             // lblVentas
             // 
-            this.lblVentas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblVentas.BackColor = System.Drawing.Color.Transparent;
             this.lblVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblVentas.Location = new System.Drawing.Point(585, 404);

@@ -130,7 +130,7 @@ namespace Entidades
                 return this.distanciaDelDomicilio;
             }
         }
-
+            
        
         /// <summary>
         /// Meotodo unico que retorna en forma de string los datos del cliente
