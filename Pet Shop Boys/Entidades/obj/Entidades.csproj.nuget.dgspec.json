@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\OneDrive\\Escritorio\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\gfumega\\Desktop\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\OneDrive\\Escritorio\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\gfumega\\Desktop\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\OneDrive\\Escritorio\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\gfumega\\Desktop\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\marti\\OneDrive\\Escritorio\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\OneDrive\\Escritorio\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\gfumega\\Desktop\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\gfumega\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gfumega\\Desktop\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\gfumega\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

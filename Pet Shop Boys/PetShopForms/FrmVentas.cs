@@ -148,8 +148,6 @@ namespace PetShopForms
                     }
 
                     Local.DescontarDinero(cliente, auxMonto, envio.Precio);      
-                    Local.Ventas.Enqueue(compra);
-
 
                     lstb_Clientes.Enabled = true;
                     lstb_HistorialVentas.Items.Add("");
@@ -161,7 +159,8 @@ namespace PetShopForms
 
                     auxMonto = envio.Precio + auxMonto;
                     compra = new Compra(cliente, auxMonto, listaAux, envio);
-                    
+                    Local.Ventas.Enqueue(compra);
+
                     lstb_HistorialVentas.Items.Add($"MONTO TOTAL DEL PEDIDO: ${auxMonto}");
                     auxMonto = 0;
                 }

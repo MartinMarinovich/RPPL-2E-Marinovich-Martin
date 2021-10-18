@@ -32,9 +32,9 @@ namespace PetShopForms
             double gastoTotal = 0;
             StringBuilder sb = new StringBuilder();
 
-            string datosComprador = "";
-            string envio = "";
-            string productos = "";
+            string datosComprador = string.Empty;
+            string envio = string.Empty;
+            string productos = string.Empty;
             string headerCompra = string.Format("{0,-8}{1,6}  {2,8}{3,8}", "Tipo", "Descripcion", "Precio", "Cantidad");
             string headerCliente = string.Format("{0,-7}{1,3}{2,9}", "Nombre", "Apellido", "NRº DNI");
 
@@ -42,31 +42,34 @@ namespace PetShopForms
 
             foreach (Compra item in Local.Ventas)
             {
-                lstb_HistorialVentas.Items.Add(headerCliente);
-                datosComprador = string.Format("{0,-10}{1,6}{2,9}", item.Comprador.Nombre, item.Comprador.Apellido, item.Comprador.DNI);
-                lstb_HistorialVentas.Items.Add("");
-                lstb_HistorialVentas.Items.Add(datosComprador);
-                lstb_HistorialVentas.Items.Add("");
-                lstb_HistorialVentas.Items.Add(headerCompra);
-                lstb_HistorialVentas.Items.Add("");
-                foreach (Producto prod in item.Carrito)
+                if (item != null)
                 {
+                    lstb_HistorialVentas.Items.Add(headerCliente);
+                    datosComprador = string.Format("{0,-10}{1,6}{2,9}", item.Comprador.Nombre, item.Comprador.Apellido, item.Comprador.DNI);
+                    lstb_HistorialVentas.Items.Add("");
+                    lstb_HistorialVentas.Items.Add(datosComprador);
+                    lstb_HistorialVentas.Items.Add("");
+                    lstb_HistorialVentas.Items.Add(headerCompra);
+                    lstb_HistorialVentas.Items.Add("");
+                    foreach (Producto prod in item.Carrito)
+                    {
 
-                    productos = string.Format("{0,-8}{1,8}  {2,8} {3,10}", prod.Tipo, prod.Descripcion, prod.Precio, prod.Stock);
-                    lstb_HistorialVentas.Items.Add(productos);
+                        productos = string.Format("{0,-8}{1,8}  {2,8} {3,10}", prod.Tipo, prod.Descripcion, prod.Precio, prod.Stock);
+                        lstb_HistorialVentas.Items.Add(productos);
 
+                    }
+                    lstb_HistorialVentas.Items.Add("");
+                    acumuladoProductos = acumuladoProductos + item.EnvioCompra.Precio + item.Monto;
+                    lstb_HistorialVentas.Items.Add("GASTO PRODUCTOS: $" + acumuladoProductos.ToString());
+                    lstb_HistorialVentas.Items.Add("");
+                    envio = string.Format("ENVIO: {0,-7} ${1,3}", item.EnvioCompra.Transporte, item.EnvioCompra.Precio);
+                    lstb_HistorialVentas.Items.Add(envio);
+                    lstb_HistorialVentas.Items.Add("");
+
+                    acumuladoProductos = 0;
+                    gastoTotal = item.EnvioCompra.Precio + item.Monto;
+                    acumulador = acumulador + gastoTotal;
                 }
-                lstb_HistorialVentas.Items.Add("");
-                acumuladoProductos = acumuladoProductos + item.EnvioCompra.Precio + item.Monto;
-                lstb_HistorialVentas.Items.Add("GASTO PRODUCTOS: $" + acumuladoProductos.ToString());
-                lstb_HistorialVentas.Items.Add("");
-                envio = string.Format("ENVIO: {0,-7} ${1,3}", item.EnvioCompra.Transporte, item.EnvioCompra.Precio);
-                lstb_HistorialVentas.Items.Add(envio);
-                lstb_HistorialVentas.Items.Add("");
-
-                acumuladoProductos = 0;
-                gastoTotal = item.EnvioCompra.Precio + item.Monto;
-                acumulador = acumulador + gastoTotal;
             }
 
             lbl_MontoHistorico.Text = "Dinero Generado en Ventas: " + acumulador;
