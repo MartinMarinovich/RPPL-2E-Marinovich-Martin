@@ -140,7 +140,10 @@ namespace Entidades
             return sb.ToString();
         }
         
-
+        /// <summary>
+        /// Retorna unicamente datos que usamos para listar la venta momentanea
+        /// </summary>
+        /// <returns></returns>
         public string DatosParaVenta()
         {
             StringBuilder sb = new StringBuilder();
@@ -149,22 +152,5 @@ namespace Entidades
             return sb.ToString();
         }
 
-
-        public Producto BuscarProducto(string descripcion)
-        {
-            Producto auxProducto = null;
-
-            foreach (Producto item in Local.Stock)
-            {
-                if (auxProducto.DatosProducto() == descripcion)
-                {
-                    auxProducto = item;
-
-                    return auxProducto;
-                }
-            }
-
-            return null;
-        }
     }
 }

@@ -122,6 +122,7 @@ namespace PetShopForms
         private void btn_ModificarEmpleado_Click(object sender, System.EventArgs e)
         {
             int indice = 0;
+            lblErrores.Visible = false;
 
             if (lstb_Nomina.SelectedItem != null)
             {
@@ -149,7 +150,7 @@ namespace PetShopForms
             else
             {
                 lblErrores.Visible = true;
-                lblErrores.Text = "Error al dar el alta del empleado";
+                lblErrores.Text = "Error seleccione un empleado para modificar";
             }
 
         }    

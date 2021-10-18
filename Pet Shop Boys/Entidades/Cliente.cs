@@ -108,6 +108,10 @@ namespace Entidades
                 {
                     this.dni = value;
                 }
+                else
+                {
+                    throw new DniException();
+                }
             }
 
             get

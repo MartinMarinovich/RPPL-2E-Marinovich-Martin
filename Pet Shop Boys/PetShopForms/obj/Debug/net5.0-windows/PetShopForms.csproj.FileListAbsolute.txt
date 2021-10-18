@@ -128,6 +128,7 @@ C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetSh
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.AssemblyInfoInputs.cache
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.AssemblyInfo.cs
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CoreCompileInputs.cache
+C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.csproj.CopyComplete
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\ref\PetShopForms.dll
 C:\Users\marti\OneDrive\Escritorio\RPPL-2E-Marinovich-Martin\Pet Shop Boys\PetShopForms\obj\Debug\net5.0-windows\PetShopForms.pdb

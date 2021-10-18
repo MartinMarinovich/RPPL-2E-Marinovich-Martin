@@ -19,7 +19,6 @@ namespace PetShopForms
     public partial class FrmStock : Form
     {
         Producto producto;
-        bool csvExportado = false;
         public FrmStock()
         {
             InitializeComponent();
@@ -141,6 +140,7 @@ namespace PetShopForms
                             auxiiar = int.Parse(txtb_CantidadReducir.Text);
                             Local.DescontarStock(indice, auxiiar);
                             ActualizarProductos();
+                            LimpiarCampos();
                         }
                     }
                 }
@@ -164,7 +164,7 @@ namespace PetShopForms
 
         private void FrmStock_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show($"Desea salir del Stock?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
             }

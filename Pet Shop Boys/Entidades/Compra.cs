@@ -11,6 +11,7 @@ namespace Entidades
         float monto;
         List<Producto> listaDeProductos;
         Envio envio;
+
         /// <summary>
         /// Constructor de la clase compra, se compone de un objeto ciente, float monto de dinero de la compra y lista de objetos tipo producto
         /// </summary>

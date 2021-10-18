@@ -18,6 +18,7 @@ namespace PetShopForms
         Envio envio = null;
         Producto auxProducto;
         int auxCant = 0;
+        double auxDni = 0;
         List<Producto> listaAux = new List<Producto>();
 
         bool pedidoTerminado = true;
@@ -58,17 +59,27 @@ namespace PetShopForms
 
         private void btn_AltaCliente_Click(object sender, EventArgs e)
         {
-            if (Local.ValidarString(txtb_Nombre.Text) && Local.ValidarString(txtb_Apellido.Text) && Local.ValidarStringNumerico(txtb_Dni.Text))
+            try
             {
-                cliente = new Cliente(txtb_Nombre.Text, txtb_Apellido.Text, double.Parse(txtb_Dni.Text));
-                Local.Clientela.Push(cliente);
-                ActualizarProductosYClientes();
+                if (Local.ValidarString(txtb_Nombre.Text) && Local.ValidarString(txtb_Apellido.Text) && double.TryParse(txtb_Dni.Text, out auxDni))
+                {
+                    Local.ValidarDNI(auxDni);
+                    cliente = new Cliente(txtb_Nombre.Text, txtb_Apellido.Text, double.Parse(txtb_Dni.Text));
+                    Local.Clientela.Push(cliente);
+                    ActualizarProductosYClientes();
+                }
+                else
+                {
+                    lbl_Errores.Visible = true;
+                }
+                LimpiarCampos();
             }
-            else
+            catch (DniException DniInvalido)
             {
                 lbl_Errores.Visible = true;
+                LimpiarCampos();
+                lbl_Errores.Text = DniInvalido.Message;
             }
-            LimpiarCampos();
         }
 
         private void btn_RealizarVenta_Click(object sender, EventArgs e)
@@ -165,7 +176,9 @@ namespace PetShopForms
             LimpiarCampos();
         }
 
-
+        /// <summary>
+        /// Metodo protegido de la clase actualiza el lst de productos y el de clientes
+        /// </summary>
         protected void ActualizarProductosYClientes()
         {
             if (lstb_Clientes.Items.Count != 0)
@@ -191,6 +204,9 @@ namespace PetShopForms
             }
         }
 
+        /// <summary>
+        /// Metodo protegido de la clase actualiza solos el lstb de ventas
+        /// </summary>
         protected void ActualizarPanelVenta()
         {
             if (listaAux != null)
@@ -263,12 +279,15 @@ namespace PetShopForms
 
         private void FrmVentas_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show($"Desea salir?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show($"Desea salir de las ventas?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
 
+        /// <summary>
+        /// Metodo privado de la clase linpia los campos
+        /// </summary>
         private void LimpiarCampos()
         {
             txtb_Apellido.Text = string.Empty;

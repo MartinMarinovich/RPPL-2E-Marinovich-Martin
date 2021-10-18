@@ -439,11 +439,11 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             StreamWriter escritor = new StreamWriter("TicketCompra.txt");
 
-            string datosComprador = string.Format("{0,-7}{1,5}{2,9}", compra.Comprador.Nombre, compra.Comprador.Apellido, compra.Comprador.DNI);
+            string datosComprador = string.Format("{0,-10}{1,6}{2,9}\n", compra.Comprador.Nombre, compra.Comprador.Apellido, compra.Comprador.DNI);
             string datosLocal = string.Format("{0,-12}\n\nDireccion: {1,2}\nCuit:{2,9}\n", Nombre, Direcion, Cuit.ToString());
-            string headerCompra = string.Format("{0,-8}{1,6}{2,8}{3,8}\n","Tipo","Descripcion","Cantidad","Precio");
+            string headerCompra = string.Format("{0,-8}{1,6}  {2,8}{3,8}\n", "Tipo","Descripcion","Cantidad","Precio");
             string headerCliente = string.Format("{0,-7}{1,3}{2,9}\n","Nombre","Apellido","NRº DNI");
- 
+            string envio = string.Format("ENVIO: {0,-7} ${1,3}\n", compra.EnvioCompra.Transporte, compra.EnvioCompra.Precio);
             sb.AppendLine(datosLocal);
             sb.AppendLine(headerCliente);
             sb.AppendLine(datosComprador);
@@ -451,10 +451,11 @@ namespace Entidades
 
             foreach (Producto item in compra.Carrito)
             {
-                string datosCompra = string.Format("{0,-8}{1,6}{2,8}{3,8}\n", item.Tipo, item.Descripcion, item.Stock, item.Precio);
+                string datosCompra = string.Format("{0,-8}{1,6}{2,8}  {3,8}\n", item.Tipo, item.Descripcion, item.Stock, item.Precio);
                 sb.AppendLine(datosCompra);
             }
 
+            sb.AppendLine(envio);
             sb.AppendLine("MONTO TOTAL: $" +compra.Monto.ToString());
 
             escritor.WriteLine(sb);

@@ -43,14 +43,15 @@ namespace PetShopForms
                  && Local.ValidarStringNumerico(txtb_SueldoAlta.Text))
                 {
                     Local.ValidarDNI(auxDni);
- 
-                     empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
-                        , txb_Usuario.Text, txtb_Contraseña.Text);
+
+                    empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
+                       , txb_Usuario.Text, txtb_Contraseña.Text);
 
                     this.DialogResult = DialogResult.OK;
                     SystemSounds.Hand.Play();
                     this.Close();
-                }else
+                }
+                else
                 {
                     lblErroresAbm.Visible = true;
                     lblErroresAbm.Text = "Error, complete los campos con valores validos";
@@ -85,22 +86,30 @@ namespace PetShopForms
         private void btn_ModificarEmpleado_Click(object sender, EventArgs e)
         {
 
-            if (Local.ValidarString(txtb_NombreAlta.Text) && Local.ValidarString(txtb_ApellidoALta.Text)
-                && Local.ValidarStringNumerico(txtb_SueldoAlta.Text))
+            try
             {
-                empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
-                     , txb_Usuario.Text, txtb_Contraseña.Text);
-                this.DialogResult = DialogResult.OK;
-                SystemSounds.Hand.Play();
-                this.Close();
+                if (Local.ValidarString(txtb_NombreAlta.Text) && Local.ValidarString(txtb_ApellidoALta.Text)
+                    && Local.ValidarStringNumerico(txtb_SueldoAlta.Text))
+                {
+                    empleado = new(txtb_NombreAlta.Text, txtb_ApellidoALta.Text, double.Parse(txtb_DniAlta.Text), float.Parse(txtb_SueldoAlta.Text)
+                         , txb_Usuario.Text, txtb_Contraseña.Text);
+                    this.DialogResult = DialogResult.OK;
+                    SystemSounds.Hand.Play();
+                    this.Close();
+                }
+                else
+                {
+                    lblErroresAbm.Visible = true;
+                    lblErroresAbm.Text = "Error, complete los campos con valores validos";
+                    this.Limpiar();
+                }
             }
-            else
+            catch (DniException DniInvalido)
             {
-
-                lblErroresAbm.Text = "Error, complete los campos con valores validos";
+                lblErroresAbm.Visible = true;
                 this.Limpiar();
+                lblErroresAbm.Text = DniInvalido.Message;
             }
-
         }
 
 
