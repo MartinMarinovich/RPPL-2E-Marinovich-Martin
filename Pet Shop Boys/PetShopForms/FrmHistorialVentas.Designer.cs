@@ -48,15 +48,15 @@ namespace PetShopForms
             // 
             this.lstb_HistorialVentas.FormattingEnabled = true;
             this.lstb_HistorialVentas.ItemHeight = 15;
-            this.lstb_HistorialVentas.Location = new System.Drawing.Point(12, 56);
+            this.lstb_HistorialVentas.Location = new System.Drawing.Point(12, 52);
             this.lstb_HistorialVentas.Name = "lstb_HistorialVentas";
-            this.lstb_HistorialVentas.Size = new System.Drawing.Size(930, 454);
+            this.lstb_HistorialVentas.Size = new System.Drawing.Size(806, 574);
             this.lstb_HistorialVentas.TabIndex = 10;
             // 
             // lbl_MontoHistorico
             // 
             this.lbl_MontoHistorico.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_MontoHistorico.Location = new System.Drawing.Point(12, 522);
+            this.lbl_MontoHistorico.Location = new System.Drawing.Point(12, 639);
             this.lbl_MontoHistorico.Name = "lbl_MontoHistorico";
             this.lbl_MontoHistorico.Size = new System.Drawing.Size(567, 44);
             this.lbl_MontoHistorico.TabIndex = 11;
@@ -66,7 +66,7 @@ namespace PetShopForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(954, 575);
+            this.ClientSize = new System.Drawing.Size(850, 686);
             this.Controls.Add(this.lbl_MontoHistorico);
             this.Controls.Add(this.lstb_HistorialVentas);
             this.Controls.Add(this.label7);

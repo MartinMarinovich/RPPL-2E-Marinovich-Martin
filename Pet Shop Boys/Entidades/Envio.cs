@@ -14,7 +14,7 @@ namespace Entidades
         int recorrido;
 
         /// <summary>
-        /// Constructor del objeto envio
+        /// Constructor del objeto envio instanci los atributos float precio, enumerador vehiculo y cantidad de recorrido
         /// </summary>
         /// <param name="precio"></param>
         /// <param name="vehiculo"></param>

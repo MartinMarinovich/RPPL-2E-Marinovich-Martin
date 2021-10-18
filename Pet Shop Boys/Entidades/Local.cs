@@ -246,7 +246,9 @@ namespace Entidades
 
         }
 
-
+        /// <summary>
+        /// Metodo que hardcodea las ventas por default que tendra la app
+        /// </summary>
         private static void HardcodearVentas()
         {
 
@@ -465,9 +467,6 @@ namespace Entidades
             escritor.WriteLine(sb);
 
             escritor.Close();
-
-
-
 
             return true;
         }

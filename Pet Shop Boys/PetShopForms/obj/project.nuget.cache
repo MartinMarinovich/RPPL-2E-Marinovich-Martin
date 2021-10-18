@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "noSekqDxhHS4LejnaJTffKpqP2Is6TLduXo4ffAsFCYCrR/WiH1xvOP9WGyR+vhARzh+9uEfkXgEVsfMZRvM1A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\marti\\OneDrive\\Escritorio\\RPPL-2E-Marinovich-Martin\\Pet Shop Boys\\PetShopForms\\PetShopForms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marti\\.nuget\\packages\\csvhelper\\27.1.1\\csvhelper.27.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}
