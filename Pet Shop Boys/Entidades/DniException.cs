@@ -8,11 +8,10 @@ namespace Entidades
 {
     public class DniException : Exception
     {
-        public DniException()
-        {
-
-        }
-
+   
+        /// <summary>
+        /// Propiedad Message heredada de exception la sobrescribimos para personalizar el mensaje
+        /// </summary>
         public override string Message { get { return "Error: Ingreso un DNI  invalido"; }}
 
     }

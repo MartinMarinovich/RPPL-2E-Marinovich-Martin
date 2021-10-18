@@ -12,14 +12,24 @@ namespace Entidades
         float precio;
         Evehiculo vehiculo;
         int recorrido;
+
+        /// <summary>
+        /// Constructor del objeto envio
+        /// </summary>
+        /// <param name="precio"></param>
+        /// <param name="vehiculo"></param>
+        /// <param name="recorrido"></param>
         public Envio(float precio, Evehiculo vehiculo,int recorrido)
         {
-            this.precio = precio;
-            this.vehiculo = vehiculo;
+            Precio = precio;
+            Transporte = vehiculo;
+            Recorrido = recorrido;
 
         }
 
-
+        /// <summary>
+        /// Propiedad precio del envio lo setea y devuelve el valor
+        /// </summary>
         public float Precio
         {
             set
@@ -37,7 +47,9 @@ namespace Entidades
         }
 
 
-
+        /// <summary>
+        /// Propiedad enumerador del transporte, setea el tipo y devuelve ya esta prestablecido
+        /// </summary>
         public Evehiculo Transporte
         {
             set
@@ -51,7 +63,9 @@ namespace Entidades
             }
         }
 
-
+        /// <summary>
+        /// Propiedad recorrido que hace el vehiculo se determina por la distancia del cliente, setea y devuelve el valor
+        /// </summary>
         public int Recorrido
         {
             set
@@ -68,6 +82,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Conversor explicito a string de los tamos precio y vehiculo del objeto envio
+        /// </summary>
+        /// <param name="envio"></param>
         public static explicit operator string(Envio envio)
         {
             string formato = string.Empty;

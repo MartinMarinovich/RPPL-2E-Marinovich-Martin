@@ -109,6 +109,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Propiedad Envio setea y devuelve el objeto de tipo envio
+        /// </summary>
         public Envio EnvioCompra
         {
             set

@@ -84,6 +84,12 @@ namespace Entidades
 
         }
 
+        /// <summary>
+        /// Sobrecarga de operador + agregar un empleado a la lista de usuarios y devuelve la lista
+        /// </summary>
+        /// <param name="Lista"></param>
+        /// <param name="empleado"></param>
+        /// <returns>Lista de usuarios</returns>
         public static List<Usuario> operator +(List<Usuario> Lista, Empleado empleado)
         {
             if (Lista != null && empleado != null)

@@ -9,7 +9,9 @@ namespace Entidades
     public class ClienteSinDineroException : Exception
     {
 
-
+        /// <summary>
+        /// Propiedad Message heredada de exception la sobrescribimos para personalizar el mensaje
+        /// </summary>
         public override string Message
         {
             get

@@ -444,6 +444,7 @@ namespace Entidades
             string headerCompra = string.Format("{0,-8}{1,6}  {2,8}{3,8}\n", "Tipo","Descripcion","Cantidad","Precio");
             string headerCliente = string.Format("{0,-7}{1,3}{2,9}\n","Nombre","Apellido","NRº DNI");
             string envio = string.Format("ENVIO: {0,-7} ${1,3}\n", compra.EnvioCompra.Transporte, compra.EnvioCompra.Precio);
+            double acumulador = 0;
             sb.AppendLine(datosLocal);
             sb.AppendLine(headerCliente);
             sb.AppendLine(datosComprador);
@@ -452,10 +453,13 @@ namespace Entidades
             foreach (Producto item in compra.Carrito)
             {
                 string datosCompra = string.Format("{0,-8}{1,6}{2,8}  {3,8}\n", item.Tipo, item.Descripcion, item.Stock, item.Precio);
+                acumulador =+ (item.Stock * item.Precio);
                 sb.AppendLine(datosCompra);
             }
 
+            sb.AppendLine("ACUMULADO EN PRODUCTOS: $"+acumulador.ToString());
             sb.AppendLine(envio);
+
             sb.AppendLine("MONTO TOTAL: $" +compra.Monto.ToString());
 
             escritor.WriteLine(sb);

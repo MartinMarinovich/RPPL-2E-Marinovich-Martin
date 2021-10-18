@@ -26,7 +26,7 @@ namespace Entidades
             Apellido = apellido;
             Dinero = rand.Next(300, 5000);
             DNI = dni;
-            Distancia = randKm.Next(1, 30);
+            Distancia = randKm.Next(1, 20);
         }
 
         /// <summary>
@@ -120,6 +120,10 @@ namespace Entidades
             }
 
         }
+
+        /// <summary>
+        /// Propiedad Distancia de la clase cliente hace referencia a la distancia del domicilio
+        /// </summary>
         public int Distancia
         {
             set
@@ -146,23 +150,6 @@ namespace Entidades
             return formato;
 
         }
-        /*
-        public static bool operator ==(Cliente cliente1, Cliente cliente2)
-        {
-            if (!(cliente1 is null) && !(cliente2 is null))
-            {
-                if (cliente1.dni == cliente2.dni)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
-        public static bool operator !=(Cliente cliente1, Cliente cliente2)
-        {
-            return (cliente1.dni != cliente2.dni);
-        }*/
+        
     }
 }

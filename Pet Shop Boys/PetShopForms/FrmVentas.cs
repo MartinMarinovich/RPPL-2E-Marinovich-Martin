@@ -147,8 +147,7 @@ namespace PetShopForms
                         auxMonto = auxMonto + item.Precio * item.Stock;
                     }
 
-                    Local.DescontarDinero(cliente, auxMonto, envio.Precio);
-                    compra = new Compra(cliente, auxMonto, listaAux, envio);
+                    Local.DescontarDinero(cliente, auxMonto, envio.Precio);      
                     Local.Ventas.Enqueue(compra);
 
 
@@ -159,7 +158,11 @@ namespace PetShopForms
                     lstb_HistorialVentas.Items.Add($"Total a pagar productos: ${auxMonto}");
                     lstb_HistorialVentas.Items.Add($"Costo de envio: ${envio.Precio}");
                     lstb_HistorialVentas.Items.Add("");
-                    lstb_HistorialVentas.Items.Add($"MONTO TOTAL DEL PEDIDO: ${envio.Precio + auxMonto}");
+
+                    auxMonto = envio.Precio + auxMonto;
+                    compra = new Compra(cliente, auxMonto, listaAux, envio);
+                    
+                    lstb_HistorialVentas.Items.Add($"MONTO TOTAL DEL PEDIDO: ${auxMonto}");
                     auxMonto = 0;
                 }
             }
@@ -214,11 +217,11 @@ namespace PetShopForms
                 lstb_HistorialVentas.Items.Clear();
                 lstb_HistorialVentas.Items.Add("*** PEDIDO EN CURSO ***");
                 lstb_HistorialVentas.Items.Add("");
-                lstb_HistorialVentas.Items.Add("Nombre        Apellido        DNI          Dinero");
+                lstb_HistorialVentas.Items.Add("Nombre        Apellido        DNI          Dinero     Distancia KM");
                 lstb_HistorialVentas.Items.Add("");
                 lstb_HistorialVentas.Items.Add(cliente.DatosCliente());
                 lstb_HistorialVentas.Items.Add("");
-                lstb_HistorialVentas.Items.Add("Producto        Descripcion        Precio          Dinero");
+                lstb_HistorialVentas.Items.Add("Codigo      Tipo        Descripcion           Precio");
                 lstb_HistorialVentas.Items.Add("");
 
                 foreach (Producto item in listaAux)
@@ -259,13 +262,14 @@ namespace PetShopForms
                     if (cliente != null)
                     {
                         lstb_HistorialVentas.Items.Clear();
+                        lstb_HistorialVentas.Items.Clear();
                         lstb_HistorialVentas.Items.Add("*** PEDIDO EN CURSO ***");
                         lstb_HistorialVentas.Items.Add("");
-                        lstb_HistorialVentas.Items.Add("Nombre        Apellido        DNI          Dinero");
+                        lstb_HistorialVentas.Items.Add("Nombre        Apellido        DNI          Dinero     Distancia KM");
                         lstb_HistorialVentas.Items.Add("");
                         lstb_HistorialVentas.Items.Add(cliente.DatosCliente());
                         lstb_HistorialVentas.Items.Add("");
-                        lstb_HistorialVentas.Items.Add("Producto        Descripcion        Precio          Dinero");
+                        lstb_HistorialVentas.Items.Add("Codigo      Tipo        Descripcion      Precio");
                         lstb_HistorialVentas.Items.Add("");
                     }
                 }
@@ -306,9 +310,21 @@ namespace PetShopForms
 
         private void btn_ExportarTxtCompra_Click(object sender, EventArgs e)
         {
+            lbl_Errores.Visible = false;
             if (pedidoTerminado == true && compra != null)
             {
-                Local.ExportarTicketCompra(compra);
+                if (Local.ExportarTicketCompra(compra))
+                {
+                    MessageBox.Show("Se ha exportado el ticket de la compra");
+                }else
+                {
+                    lbl_Errores.Visible = true;
+                    lbl_Errores.Text = "No se pudo exportar el ticket";
+                }
+            }else
+            {
+                lbl_Errores.Visible = true;
+                lbl_Errores.Text = "Complete el pedido primero para exportar";
             }
         }
     }

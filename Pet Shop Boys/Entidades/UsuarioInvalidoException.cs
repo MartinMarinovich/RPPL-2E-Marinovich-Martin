@@ -8,11 +8,11 @@ namespace Entidades
 {
     public class UsuarioInvalidoException : Exception
     {
-        public UsuarioInvalidoException()
-        {
+      
 
-        }
-
+        /// <summary>
+        /// Propiedad Message heredada de exception la sobrescribimos para personalizar el mensaje
+        /// </summary>
         public override string Message
         {
 

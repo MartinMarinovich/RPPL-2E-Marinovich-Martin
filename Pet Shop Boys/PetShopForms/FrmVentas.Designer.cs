@@ -245,13 +245,13 @@ namespace PetShopForms
             // 
             this.label8.Location = new System.Drawing.Point(178, 64);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 16);
+            this.label8.Size = new System.Drawing.Size(78, 16);
             this.label8.TabIndex = 23;
             this.label8.Text = "Descripcion";
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(419, 64);
+            this.label9.Location = new System.Drawing.Point(394, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 16);
             this.label9.TabIndex = 24;
@@ -267,7 +267,7 @@ namespace PetShopForms
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(318, 64);
+            this.label11.Location = new System.Drawing.Point(297, 64);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 16);
             this.label11.TabIndex = 26;

@@ -28,7 +28,9 @@ namespace Entidades
             Vacuna
         }
 
-
+        /// <summary>
+        /// Enumerador Evehiculo contiene dos tipos motocicleta y miniflete
+        /// </summary>
         public enum Evehiculo
         {
             Motocicleta,
